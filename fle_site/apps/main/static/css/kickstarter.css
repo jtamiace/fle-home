@@ -667,6 +667,21 @@ section h3.section-subheading {
 }
 /* END FEATURE RIBBONS */
 
+@media (max-width: 991px) {
+  .portfolio-barrier-box,
+  .portfolio-solution-box {
+    position: relative;
+    top: 30px;
+    padding: 10px 0px;
+    right: 5px;
+  }
+  #portfolio .portfolio-item .portfolio-caption {
+    height: 100%;
+  }
+  .portfolio-solution-box p {
+    margin-bottom: 20px !important;
+  }
+}
 @media (max-width: 767px) {
   .portfolio-barrier-box {
     margin-bottom: 25px;
