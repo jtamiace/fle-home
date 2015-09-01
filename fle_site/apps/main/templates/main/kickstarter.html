@@ -7,11 +7,8 @@
 {% block headcss %}
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-
-    <link rel="stylesheet" href="{% static 'css/bootstrap-touch-carousel.css' %}">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{% static 'css/kickstarter.css' %}">
-    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
 
     <!-- Custom Fonts -->
 
@@ -19,9 +16,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.4.1/snap.svg-min.js"></script>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-    <script src="{% static 'js/fabric.js' %}"></script>
-    <script src="{% static 'js/data.js' %}"></script>
-    <script src="{% static 'js/modernizr-2.7.1.min.js' %}"></script>
     <link href="//cdnjs.cloudflare.com/ajax/libs/cc-icons/1.2.1/css/cc-icons.min.css" rel="stylesheet">
 {% endblock headcss %}
 
@@ -35,11 +29,11 @@
     <header id="kickstarter-header">
         <div class="header-shadow row">
             <div class="intro-text">
-                <div class="intro-heading">Kolibri: Open Source Education for the World</div>
-                <div class="intro-heading2">A Kickstarter Campaign by Learning Equality</div>
+                <div class="intro-heading">Kolibri: The offline app for universal education</div>
                 <div class="intro-social">
                     {% include "main/partials/_kickstarter_social_btns.html" %}
                 </div>
+                <img src="{% static 'img/kickstarter/signup.png' %}">
             </div>
         </div>
         <img id="bgvid-btn" src="{% static 'img/kickstarter/video/play-btn.png' %}">
@@ -51,209 +45,11 @@
         </div>
     </header>
 
-    <!-- Parallax Section -->
-    <div class='parallax_or_mobile'></div>
-    <script type="text/javascript">
-    $(function() {
-        var ua = navigator.userAgent,
-        isMobileWebkit = /WebKit/.test(ua) && /Mobile/.test(ua);
-        if (isMobileWebkit) {
-            $(".parallax_or_mobile").load("{% static 'kickstarter/kickstarter_mobile_template.html' %}");
-        }else{
-            // $.getScript("{% static 'js/enquire.min.js' %}");
-            $(".parallax_or_mobile").load("{% static 'kickstarter/kickstarter_parallax_template.html' %}", function() {
-                // $(".parallax_or_mobile").load("{% static 'kickstarter/_kickstarter_portfolio.html' %}", function() {
-                    $.getScript("{% static 'js/imagesloaded.js' %}", function() {
-                        $.getScript("{% static 'js/skrollr.js' %}", function() {
-                            $.getScript("{% static 'js/_main.js' %}");
-                        });
-                });
-            });
-        }
-    });
-    </script>
-
-    <!-- First Mailchimp -->
-    <section id="slider" class="not-parallax-section">
-        <div class="slider-overlay">
-            <div id="iframe-wrapper">
-                <h1 class="mailing_toplabel">How You Can Help!</h1>
-                <h2 id="mail-top" class="mailing_sidelabel">A few minutes of your time can change a life forever. Help us spread the word about our Kickstarter launch in October!</h2>
-                    <iframe id="header-mailchimp" src="{% url 'mailchimp' %}" frameborder="0" width="100%" height="300">
-                        <a href="partials/_kickstarter_mailchimp.html" target="_blank">Sign up!</a>
-                    </iframe>
-            </div>
-        </div>        
-
-    </section>
-
-    <!-- Features Section: Tile Design -->
-    <section class="not-parallax-section">
-        {% include "main/partials/_kickstarter_features_tiledesign.html" %}
-    </section>
-
-    <!-- FLE History Section -->
-    <section id="about" class="not-parallax-section">
-        {% include "main/partials/_kickstarter_about.html" %}
-    </section>
-
-
-    <!-- Contact Section -->
-    <div class='ending_background'>
-        <div class="col-lg-12 text-center">
-            <h2 class="section-heading">SEE HOW YOU CAN HELP BRIDGE THE DIVIDE</h2>
-        </div>
-        <h3 class="mailing_label text-muted">BE THE FIRST TO KNOW ABOUT THE SEPTEMBER LAUNCH!</h3>
+    <div id="prototype-img">
     </div>
-    <section id="contact" class="not-parallax-section">
-        <div class="foot_containor">
-            <h3 class="lowcase">Spread the words</h3>
-            {% include "main/partials/_kickstarter_social_btns.html" %}
-            <h3 class="lowcase">-- Or --</h3>
-            <iframe id="footer-mailchimp" src="{% url 'mailchimp' %}" frameborder="0" width="100%" height="200">
-                <a href="partials/_kickstarter_mailchimp.html" target="_blank">Sign up!</a>
-            </iframe>
-        </div>
-            <!-- End mc_embed_signup -->
-    </section>
-
-    <a href="#kickstarter-header" class="back-to-top"><span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span></a>
-
-    <!-- Portfolio Modals -->
-
-    <!-- Portfolio Modal 0 -->
-    <div class="portfolio-modal modal fade" id="portfolioModal0" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="my_col">
-                        <div class="modal-body">
-                            <h2>Preconfigured Tablet</h2>
-                            <p class="item-intro text-muted">An affordable Android tablet that can run Kolibri smoothly</p>
-                            <img class="img-responsive img-centered" src="{% static 'img/kickstarter/portfolio/preconfigure_img_all-min.png' %}" alt="">
-                            <p class="text-muted">* Prices listed above are sheer cost based on our best estimation</p>
-                            <p class="center">Why Android? Android tablets are the most cost- effective solution for Kolibri’s needs. Kolibri requires hardware that can run a full fledged software platform with the ability to playback audio and video, sync with a central server, and be battery operated for times when the electric grid is unreliable. We’ve had plenty of experience deploying Ka-Lite, our previous offline learning platform, using Raspberry Pi. Pi is an excellent deployment tool when run as a server, but is not suitable as a standalone learning machine. When it comes to the best hardware solution for Kolibri, an Android tablet is the clear winner.</p>
-                            <div class="tabelt_specs">
-                                <div class="specs">Our target tablet will have:<br>4 Core Processor / 1G RAM / 8G Storage / 7" IPS screen / GPS</div>
-                            </div>
-                            <p class="center">Later this year, we will work with manufacturers to customize the tablet to ensure Kolibri runs efficiently on it, and using its full potential to achieve a cost- effective goal.</p>
-                            <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Feature</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Portfolio Modal 1 -->
-    <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="my_col">
-                        <div class="modal-body">
-                            <!-- Project Details Go Here -->
-                            <h2>Content Curation</h2>
-                            <p class="item-intro text-muted">We’ll be working with organizations that produce high quality content to create custom channels to distribute their content, and regional organizations and governments to customize and align this content to local curricular standards to serve the needs of local learners.</p>
-                            <img class="img-responsive img-centered" src="{% static 'img/kickstarter/portfolio/content_curation.gif' %}" alt="">
-                            <p class="big"><mark>&#9733 Remix existing channels:  </mark>   Kolibri will allow educational content producers and organizations to have the freedom to combine content from various channels to make a broad library of high quality and locally relevant educational content available to offline learners. For example, an instructor could create a new channel by combining math content from the Khan Academy channel and geography content from the OpenStax channel, allowing them to easily integrate a variety of learning material to customize their curriculum.</p>
-                            <p class="big"><mark>&#9733 Upload new content:  </mark>   There are times when these content producers have come up with their own learning material that they have found works effectively. When this happens, they can upload their content to Kolibri, and then choose to make their new channel available to others who may find it useful for their own contexts.</p>
-                            <p class="big"><mark>&#9733 Integrate new and existing content:  </mark>   Kolibri will allow educational content producers and organizations to combine existing content with their own. If an organization like UNICEF knows from experience that certain math lessons are favored by students, and they have also noticed that some of their own original exercises are effective, they can create a new channel and combine their content with pre-existing content from another channel to optimize their curriculum.</p>
-                            <!-- <p class="big"><mark>&#9733 Alternatively, one can rearrange an existing channel:  </mark>   Content producers also have the ability to customize content that already exists in a channel. If they think that certain lessons in a channel may be too challenging for their students, for example, they can remove these lessons and present their students only with the material that is appropriate for them.</p> -->
-                            <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i>Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Portfolio Modal 2 -->
-    <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="my_col">
-                        <div class="modal-body">
-                            <h2>Peer to Peer Sync</h2>
-                            <p class="item-intro text-muted">Discover new knowledge as you go, even without Internet connection</p>
-                            <img class="img-responsive img-centered" src="{% static 'img/kickstarter/portfolio/peer_to_peer_modal_img.png' %}" alt="">
-                            <p class="center">With the “device discovery” interface, devices can find and directly connect with each other over a local wi-fi network, allowing for easy content sharing and data updates.</p>
-                           <!--  <p>You can preview Startup Framework <a href="http://designmodo.com/startup/?u=787">here</a>.</p> -->
-                            <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i>Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Portfolio Modal 3 -->
-    <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
-                    </div>
-                </div>
-            </div>
-            <div>
-                <div class="row">
-                    <div>
-                        <div class="modal-body">
-                            <!-- Project Details Go Here -->
-                            <h2>Video Vectorization</h2>
-                            <p class="item-intro text-muted">Achieve a compression ratio no other algorithm comes close, but still with high quality.</p>
-                            <center>
-                                <canvas id="canvas" width="690" height="388" style="border:1px solid #000000"></canvas>
-                            </center>
-                            <img id="vec_bg_img" src="{% static 'img/kickstarter/portfolio/5.png' %}" style="display:none"><!-- a hack to get the image url -->
-                            <script src="{% static 'js/action updated.js' %}"></script>
-                            <mark id="mark">&#9757 Select the elements on the video with your mouse and change their position and size.<br>Try it while the video is playing!</mark>
-                            <br>
-                            <br>
-                            <div id="button-wrapper">
-                                <button class="btn play-btn" onclick="startAnimation()">PLAY</button>
-                                <button class="btn btn-primary" onclick="restartAnimation()">Restart</button>
-                                <button class="btn btn-primary" onclick="pauseAnimation()">Pause</button>
-                            </div>
-                            <br>
-                            <br>
-                            
-                            <!-- <p>You can download the PSD template in this portfolio sample item at <a href="http://freebiesxpress.com/gallery/treehouse-free-psd-web-template/">FreebiesXpress.com</a>.</p> -->
-                            <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i>Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
 
     <!-- Plugin JavaScript -->
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-    <script src="{% static 'js/classie.js' %}" type="text/javascript"></script>
-    <script src="{% static 'js/cbpAnimatedHeader.min.js' %}" type="text/javascript"></script>
-    <!-- Contact Form JavaScript -->
-    <script src="{% static 'js/jqBootstrapValidation.js' %}" type="text/javascript"></script> 
+    
 
     <!-- Smooth scrolling and back to top button -->
     <script>
